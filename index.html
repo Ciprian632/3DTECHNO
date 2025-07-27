@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>3DTECHNO</title>
+  <link rel="stylesheet" href="index.css" />
+  <style>
+    #loading-screen {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background-color: black;
+      color: white;
+      font-size: 3rem;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10000;
+      flex-direction: column;
+    }
+
+    #loading-screen p {
+      display: none;
+      margin: 0;
+    }
+
+    #loading-screen p.visible {
+      display: block;
+    }
+
+    body > *:not(#loading-screen) {
+      visibility: hidden;
+    }
+
+    body.loaded > *:not(#loading-screen) {
+      visibility: visible;
+    }
+
+    body.loaded #loading-screen {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="loading-screen">
+    <p id="greeting-en" class="visible">Hello</p>
+    <p id="greeting-fr">Bonjour</p>
+    <p id="greeting-es">Hola</p>
+  </div>
+
+  <nav class="navbar">
+    <div class="navbar-title">
+      <h1>3DTECHNO Æ</h1>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">[home]</a>
+      <a href="projects.html">[portfolio]</a>
+      <a href="contact.html">[contact]</a>
+      <a href="about.html" class="active">[about me]</a>
+    </div>
+  </nav>
+
+  <div class="title">
+    <h1 class="scribble-title">
+      TURNING CONCEPTS <br /> INTO <span class="scribble">3D</span> REALITY
+    </h1>
+
+    <div class="button-container">
+      <span class="button-label">[ Game-ready models and textured assets ]</span>
+      <button class="action-button" onclick="window.location.href='projects.html'">DISCOVER →</button>
+    </div>
+  </div>
+
+  <div class="glass-cursor"></div>
+
+  <script>
+    const greetings = [
+      document.getElementById('greeting-en'),
+      document.getElementById('greeting-fr'),
+      document.getElementById('greeting-es'),
+    ];
+    let current = 0;
+    const delay = 1500;
+
+    function showNextGreeting() {
+      greetings[current].classList.remove('visible');
+      current++;
+      if (current < greetings.length) {
+        greetings[current].classList.add('visible');
+        setTimeout(showNextGreeting, delay);
+      } else {
+        document.body.classList.add('loaded');
+      }
+    }
+
+    setTimeout(showNextGreeting, delay);
+
+    const glassCursor = document.querySelector('.glass-cursor');
+    window.addEventListener('mousemove', e => {
+        glassCursor.style.top = e.clientY + 'px';
+        glassCursor.style.left = e.clientX + 'px';
+    });
+  </script>
+
+  <footer class="footer">
+  <div class="footer-container">
+    <div class="footer-left">
+      <p>© 2025 3DTECHNO Æ. All rights reserved.</p>
+    </div>
+    <div class="footer-right">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>

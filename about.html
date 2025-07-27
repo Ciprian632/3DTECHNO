@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>3DTECHNO - About Me</title>
+  <style>
+    * {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      color: black;
+      background: #fafafa;
+      font-size: 20px;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 50px 80px;
+      color: black;
+      flex-wrap: wrap;
+    }
+
+    .navbar-title {
+      font-size: 1.9rem;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 16px;
+    }
+
+    .nav-links a {
+      padding: 10px;
+      text-decoration: none;
+      color: black;
+      font-size: 1.5rem;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      background-color: black;
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    main {
+      flex: 1 0 auto;
+      max-width: 900px;
+      margin: 100px auto 150px auto;
+      padding: 0 20px;
+    }
+
+    h1.page-title {
+      font-size: 4rem;
+      font-weight: 800;
+      margin-bottom: 50px;
+      text-align: center;
+      color: #222;
+    }
+
+    .categories-tables {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .category-wrapper {
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .category-wrapper:hover {
+      background-color: black;
+      color: white;
+    }
+
+    .category-row {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-start;
+      gap: 60px;
+      padding: 25px 20px;
+      border-top: 1px solid black;
+      transition: color 0.3s ease;
+    }
+
+    .category-wrapper:first-child .category-row {
+      border-top: none;
+    }
+
+    .category-title {
+      flex: 0 0 180px;
+      font-weight: 800;
+      font-size: 2rem;
+      padding-top: 5px;
+      color: inherit;
+    }
+
+    .category-items {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      flex: 1;
+    }
+
+    .category-items > div {
+      font-size: 1.6rem;
+      color: gray;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .category-wrapper:hover .category-items > div {
+      color: #ccc;
+    }
+
+    .footer {
+      flex-shrink: 0;
+      background-color: black;
+      color: white;
+      padding: 20px 20px;
+      font-size: 1rem;
+      font-weight: 500;
+      font-family: 'Poppins', sans-serif;
+      user-select: none;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-left {
+      flex: 1 1 300px;
+    }
+
+    .footer-right {
+      display: flex;
+      gap: 20px;
+      flex: 1 1 300px;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+    }
+
+    .footer-right a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .footer-right a:hover {
+      color: #ddd;
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 14px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .nav-links {
+        flex-direction: column;
+        width: 100%;
+      }
+      .nav-links a {
+        font-size: 1.2rem;
+        padding: 5px 0;
+      }
+      .navbar-title {
+        font-size: 1.6rem;
+      }
+      main {
+        margin: 60px 20px 100px 20px;
+        max-width: none;
+      }
+      h1.page-title {
+        font-size: 3rem;
+        margin-bottom: 30px;
+      }
+      .category-row {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+      }
+      .category-title {
+        font-size: 1.7rem;
+      }
+      .category-items > div {
+        font-size: 1.4rem;
+      }
+      .footer {
+        padding: 20px 20px;
+        font-size: 0.9rem;
+      }
+      .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .footer-left, .footer-right {
+        flex: unset;
+        justify-content: center;
+      }
+      .footer-right {
+        gap: 15px;
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="navbar-title">
+      <h1>3DTECHNO Æ</h1>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">[home]</a>
+      <a href="projects.html">[portfolio]</a>
+      <a href="contact.html">[contact]</a>
+      <a href="about.html" class="active">[about me]</a>
+    </div>
+  </nav>
+
+  <main>
+    <h1 class="page-title">About Me - Categories</h1>
+
+    <div class="categories-tables">
+
+      <div class="category-wrapper">
+        <div class="category-row">
+          <div class="category-title">Category A</div>
+          <div class="category-items">
+            <div>Item 1</div>
+            <div>Item 2</div>
+            <div>Item 3</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="category-wrapper">
+        <div class="category-row">
+          <div class="category-title">Category B</div>
+          <div class="category-items">
+            <div>Item 4</div>
+            <div>Item 5</div>
+            <div>Item 6</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="category-wrapper">
+        <div class="category-row">
+          <div class="category-title">Category C</div>
+          <div class="category-items">
+            <div>Item 7</div>
+            <div>Item 8</div>
+            <div>Item 9</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <p>© 2025 3DTECHNO Æ. All rights reserved.</p>
+      </div>
+      <div class="footer-right">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
